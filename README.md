@@ -25,3 +25,14 @@ Ensure you have the following installed on your system:
 
 ## Project Structure
 
+.
+├── Dockerfile
+├── docker-compose.yml
+├── nginx.conf
+├── fail2ban
+│ ├── jail.local
+│ └── filter.d
+│ └── nginx-http-auth.conf
+└── scripts
+└── monitor_logs.py
+
