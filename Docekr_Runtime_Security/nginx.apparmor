@@ -1,0 +1,33 @@
+# Default profile for nginx
+profile nginx /usr/sbin/nginx {
+  # Allow read access to common libraries
+  # (Example: adjust based on your Nginx configuration)
+  /usr/lib/** r,
+  /usr/sbin/nginx r,
+
+  # Allow write access to logs and temporary files
+  /var/log/nginx/** rw,
+  /var/cache/nginx/** rw,
+  /var/run/nginx.pid rw,
+  /run/nginx.pid rw,
+
+  # Allow network access if Nginx serves web traffic
+  network inet,
+  network inet6,
+
+  # Allow access to necessary capabilities
+  capability setgid,
+  capability setuid,
+
+  # Allow access to necessary devices (if applicable)
+  /dev/log rw,
+  /dev/null rw,
+
+  # Deny everything else by default
+  deny,
+
+  # Include other AppArmor abstractions if needed
+  # (e.g., to allow read access to other system resources)
+  #include <abstractions/base>
+}
+
