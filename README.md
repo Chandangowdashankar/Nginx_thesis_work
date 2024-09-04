@@ -1,25 +1,32 @@
-# Dockerized Nginx with fail2ban Integration
+# Multi-Layer Security for Nginx: Server, Container, and Web Server-Level Defense Against Denial-of-Service Attacks
 
-This project demonstrates how to secure an Nginx web server running in a Docker container using fail2ban to prevent brute force attacks and other malicious activities.
+This repository provides configurations and source code to implement a multi-layer security strategy for Nginx, designed to protect against Denial-of-Service (DoS) attacks. The approach covers defenses at the server level, container level, and within the web server itself.
 
-## Table of Contents
+## Security Layers Overview
 
-1. [Prerequisites](#prerequisites)
-2. [Project Structure](#project-structure)
-3. [Setup and Configuration](#setup-and-configuration)
-   - [Dockerfile](#dockerfile)
-   - [Nginx Configuration](#nginx-configuration)
-   - [fail2ban Configuration](#fail2ban-configuration)
-   - [Custom Python Script](#custom-python-script)
-4. [Build and Run](#build-and-run)
-5. [Monitoring Tools](#monitoring-tools)
-6. [Accessing the Services](#accessing-the-services)
-7. [Conclusion](#conclusion)
+### Layer 1: Server-Level Defense
 
-## Prerequisites
+**Description:**
+Implement server-level protections using firewall rules and IP filtering to block malicious traffic before it reaches the Nginx server. This helps to prevent DoS attacks and excessive load on the web server.
 
-Ensure you have the following installed on your system:
+### Layer 2: Container-Level Defense
 
-- Docker
-- Docker Compose
+**Description:**
+Configure Docker container limits to control CPU and memory usage, isolating the Nginx instance and protecting the host system from resource exhaustion due to potential DoS attacks.
+
+### Layer 3: Web Server-Level Defense
+
+**Description:**
+Utilize Nginx's built-in features for enhanced security:
+- **Rate Limiting**: Controls the rate of requests to prevent abuse.
+- **IP Whitelisting**: Restricts access to trusted IP addresses only.
+- **Web Application Firewall (WAF)**: Filters and blocks malicious requests.
+
+## Code and Configurations
+
+All code snippets and configurations related to these security layers are provided in this repository. Please refer to the files for detailed implementations and setup instructions.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
